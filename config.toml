@@ -1,3 +1,13 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+baseurl = "chick-tack.com"
+languageCode = "en"
+title = "Chick Tack"
+theme = "hugo-theme-cactus-plus"
+[params]
+	author = "gtongy"
+	description = "ひよっこの道のり"
+	bio = "ひよっこの道のり"
+	enableSummary = true
+	useDescriptionReplaceSummary = false
+	iconFont = "font-awesome"
+[social]
+	github-square = "https://github.com/gtongy"
