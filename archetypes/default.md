@@ -1,6 +1,8 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
-draft: true
+linktitle: "{{ replace .Name "-" " " | title }}"
+title: "{{ replace .Name "-" " " | title }}"
+description: ""
+weight: 12
 ---
 
