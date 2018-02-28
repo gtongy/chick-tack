@@ -2,6 +2,8 @@ baseurl = "chick-tack.com"
 languageCode = "en"
 title = "Chick Tack"
 theme = "hugo-theme-cactus-plus"
+pygmentscodefences = true
+pygmentsstyle = "monokai"
 [params]
 	author = "gtongy"
 	enableSummary = true
