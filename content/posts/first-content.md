@@ -2,8 +2,11 @@
 date: 2018-02-27
 linktitle: "Hugoを使って新しくブログを開設しました"
 title: "Hugoを使って新しくブログを開設しました"
-description: This tutorial will show you how to create a simple theme in Hugo.
-weight: 12
+weight: 16
+tags: [
+    "go",
+    "hugo"
+]
 ---
  
 新しくブログを立ち上げました。
