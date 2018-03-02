@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go on Chick Tack</title>
+    <link>https://gtongy.github.io/chick-tack/tags/go/</link>
+    <description>Recent content in Go on Chick Tack</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 27 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://gtongy.github.io/chick-tack/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hugoを使って新しくブログを開設しました</title>
+      <link>https://gtongy.github.io/chick-tack/posts/first-content/</link>
+      <pubDate>Tue, 27 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gtongy.github.io/chick-tack/posts/first-content/</guid>
+      <description>新しくブログを立ち上げました。 ブログを立ち上げるに当たって 気軽にサクッと書いてあげられる感じがいい 記事を書いて公開するまでなるべくブラウザを介したくない ブログの立ち上げが早ければいいなぁ 以上の点で何かないかと色々と調べていたら、静的サイトジェネレータというものがどうやら良さげ。 記事もマークダウンで書</description>
+    </item>
+    
+  </channel>
+</rss>

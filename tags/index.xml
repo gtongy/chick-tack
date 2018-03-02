@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Chick Tack</title>
+    <link>https://gtongy.github.io/chick-tack/tags/</link>
+    <description>Recent content in Tags on Chick Tack</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 27 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://gtongy.github.io/chick-tack/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Go</title>
+      <link>https://gtongy.github.io/chick-tack/tags/go/</link>
+      <pubDate>Tue, 27 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gtongy.github.io/chick-tack/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://gtongy.github.io/chick-tack/tags/hugo/</link>
+      <pubDate>Tue, 27 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gtongy.github.io/chick-tack/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
