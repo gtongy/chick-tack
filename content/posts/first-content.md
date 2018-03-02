@@ -2,8 +2,11 @@
 date: 2018-02-27
 linktitle: "Hugoを使って新しくブログを開設しました"
 title: "Hugoを使って新しくブログを開設しました"
-description: This tutorial will show you how to create a simple theme in Hugo.
-weight: 12
+weight: 16
+tags: [
+    "go",
+    "hugo"
+]
 ---
  
 新しくブログを立ち上げました。
@@ -25,9 +28,9 @@ weight: 12
 
 などがあげられるのですが、今回はHugoを採用しています。
 
-※ 他のものは(staticgen)[https://www.staticgen.com]などから見られます。
+※ 他のものは[staticgen](https://www.staticgen.com)などから見られます。
 
-理由は最初にあげていますが、ブログの立ち上げがなるべく早い方がいいなという点と、個人的に最近Go言語にハマっているからです。
+理由は最初にあげていますが、ブログの立ち上げがなるべく早い方がいいなという点と、個人的に最近Go言語にハマっているからです。  
 みんな大好きGopherくん...!
 
 ## とりあえずデプロイまでしてみて感想
@@ -35,7 +38,7 @@ weight: 12
 
  - とにかく早い！立ち上がりの速さが尋常じゃなかった
  - markdown形式でエディタを行き来するだけでいいのは楽チン
- - デプロイめちゃ簡単
+ - デプロイが楽
 
 今回ホスティングサービスとしてGitHub Pagesを使ってるんですが、とにかく簡単でした。
 手順等は[本家サイト](https://gohugo.io/hosting-and-deployment/hosting-on-github/)に習ってやりました。
