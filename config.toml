@@ -1,4 +1,4 @@
-baseurl = "https://gtongy.github.io/chick-tack"
+baseurl = "https://gtongy.github.io/chick-tack/"
 canonifyurls = true
 languageCode = "en"
 title = "Chick Tack"
