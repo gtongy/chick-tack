@@ -1,9 +1,12 @@
-baseurl = "chick-tack.com"
+baseurl = "https://gtongy.github.io/chick-tack"
+canonifyurls = true
 languageCode = "en"
 title = "Chick Tack"
 theme = "hugo-theme-cactus-plus"
 pygmentscodefences = true
 pygmentsstyle = "monokai"
+hasCJKLanguage = true
+SummaryLength = 150
 [params]
 	author = "gtongy"
 	enableSummary = true
