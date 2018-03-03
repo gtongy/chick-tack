@@ -12,6 +12,9 @@ SummaryLength = 150
 	enableSummary = true
 	useDescriptionReplaceSummary = false
 	iconFont = "font-awesome"
+	enableGoogleAnalytics = true
+	enableBaiduAnalytics = true
+	baiduAnalytics = "UA-89451571-2"
 [social]
 	github-square = "https://github.com/gtongy"
 
