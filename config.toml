@@ -3,6 +3,7 @@ canonifyurls = true
 languageCode = "en"
 title = "Chick Tack"
 theme = "hugo-theme-cactus-plus"
+googleAnalytics = "UA-89451571-2"
 pygmentscodefences = true
 pygmentsstyle = "monokai"
 hasCJKLanguage = true
@@ -13,8 +14,7 @@ SummaryLength = 150
 	useDescriptionReplaceSummary = false
 	iconFont = "font-awesome"
 	enableGoogleAnalytics = true
-	enableBaiduAnalytics = true
-	baiduAnalytics = "UA-89451571-2"
+	enableBaiduAnalytics = false
 [social]
 	github-square = "https://github.com/gtongy"
 
