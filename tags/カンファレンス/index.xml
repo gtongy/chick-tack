@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>カンファレンス on Chick Tack</title>
+    <link>https://gtongy.github.io/chick-tack/tags/%E3%82%AB%E3%83%B3%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/</link>
+    <description>Recent content in カンファレンス on Chick Tack</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 10 Mar 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://gtongy.github.io/chick-tack/tags/%E3%82%AB%E3%83%B3%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PHPer Kaigiに行ってきた</title>
+      <link>https://gtongy.github.io/chick-tack/posts/phper-kaigi/</link>
+      <pubDate>Sat, 10 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gtongy.github.io/chick-tack/posts/phper-kaigi/</guid>
+      <description>昨日一昨日と2日に渡ってPHPerKaigiに行ってきました。 どんなことはなしてたかの頭の整理がしたかった 自分の中で熱がほとばしってるうちに書いておきたかった のもあってブログ書きました。 まだ上がっていないスライドは後々更新しようかなと思ってます。 1日目 PHPでテスティングフレームワークを実装する</description>
+    </item>
+    
+  </channel>
+</rss>

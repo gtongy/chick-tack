@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="author" content="gtongy">
+		
+		<meta name="generator" content="Hugo 0.36.1" />
+		<title>PHPer Kaigiに行ってきた &middot; Chick Tack</title>
+		<link rel="shortcut icon" href="https://gtongy.github.io/chick-tack/images/favicon.ico">
+		<link rel="stylesheet" href="https://gtongy.github.io/chick-tack/css/style.css">
+		<link rel="stylesheet" href="https://gtongy.github.io/chick-tack/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://gtongy.github.io/chick-tack/css/font-awesome.min.css">
+		
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai.min.css">
+
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://gtongy.github.io/chick-tack/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://gtongy.github.io/chick-tack/posts'>Archive</a>
+	<a href='https://gtongy.github.io/chick-tack/tags'>Tags</a>
+
+	
+
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        PHPer Kaigiに行ってきた
+                    </h1>
+                    <h2 class="headline">
+                    Mar 10, 2018 00:00
+                    · 2050 words
+                    · 5 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://gtongy.github.io/chick-tack/tags/php">php</a>
+                          
+                              <a href="https://gtongy.github.io/chick-tack/tags/phper-kaigi">PHPer Kaigi</a>
+                          
+                              <a href="https://gtongy.github.io/chick-tack/tags/%E3%82%AB%E3%83%B3%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9">カンファレンス</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                <section id="post-body">
+                    
+
+<p>昨日一昨日と2日に渡ってPHPerKaigiに行ってきました。</p>
+
+<ul>
+<li>どんなことはなしてたかの頭の整理がしたかった</li>
+<li>自分の中で熱がほとばしってるうちに書いておきたかった</li>
+</ul>
+
+<p>のもあってブログ書きました。<br />
+まだ上がっていないスライドは後々更新しようかなと思ってます。</p>
+
+<h2 id="1日目">1日目</h2>
+
+<h3 id="phpて-テスティンク-フレームワークを実装する前に知っておきたい勘所-https-niconare-nicovideo-jp-watch-kn2945"><a href="https://niconare.nicovideo.jp/watch/kn2945">PHPでテスティングフレームワークを実装する前に知っておきたい勘所</a></h3>
+
+<ul>
+<li>何よりもテスティングフレームワークつ一からペチペチして作って勘付きところを見つけていく過程が楽しかった</li>
+<li>ReflectionFunctionのgetDocCommentでdataProviderっぽくやってたとこを見たところである種の執念のようなものを感じた</li>
+<li>phpのpower-assertは初めて見た</li>
+</ul>
+
+<h3 id="php-と-sapi-と-zendengine3-と-https-www-slideshare-net-do-aki-php-sapi-zendengine3"><a href="https://www.slideshare.net/do_aki/php-sapi-zendengine3">PHP と SAPI と ZendEngine3 と</a></h3>
+
+<ul>
+<li>自分のスキルとして、PHPの裏側を全く見たことがない&amp;興味の嗜好がまだ向いていないところだった</li>
+<li>なるほどそうなってるんだっというところで埋め尽くされていました</li>
+<li>スライドも説明も丁寧でかなり理解が深まった印象</li>
+<li><strong>SAPI = さっぴー</strong></li>
+</ul>
+
+<h3 id="大統一php-https-speakerdeck-com-uzulla-da-tong-php"><a href="https://speakerdeck.com/uzulla/da-tong-php">大統一PHP</a></h3>
+
+<ul>
+<li>他言語からやってきた人がPHPをDisらないために統一する野望</li>
+<li>phpがhttpdになったり、phpでイベント駆動を実装したりとかなり</li>
+<li>swooleが面白い!</li>
+<li>coroutine, channelができちゃうとかまさにgoのいいとことっちゃったやん！phperに光差したか！？と個人的に興奮した</li>
+<li>phpの可能性広がった</li>
+</ul>
+
+<h2 id="2日目">2日目</h2>
+
+<h3 id="今からでもできる-webサービスモニタリング-https-speakerdeck-com-soudai-phper-monitoring"><a href="https://speakerdeck.com/soudai/phper-monitoring">今からでもできる!Webサービスモニタリング!!</a></h3>
+
+<ul>
+<li>なんでモニタリング必要か？
+
+<ul>
+<li>素早く障害に気付くため</li>
+<li>素早く障害原因を究明するため</li>
+<li>システムの振る舞いを予測し、未然に障害を防ぐため</li>
+<li><strong>そのためにも精度の高い監視が必要</strong></li>
+</ul></li>
+<li>サーバーサイドだけじゃなくって、クライアントもインターネットも可視化してモニタリングをしよう</li>
+<li>アプリケーションモニタリング
+
+<ul>
+<li>New Relic</li>
+<li>パフォーマンスモニタリング
+
+<ul>
+<li>システムの振る舞いから</li>
+</ul></li>
+</ul></li>
+<li>PHPが使うメモリ量や実行量が気になる</li>
+<li>PHPとサービスの振る舞いは表裏一体</li>
+<li>まず可視化</li>
+<li>推測より計測、計測より観測</li>
+<li>事実をより多く正しく知って未来を予測する</li>
+<li>エンジニアには根拠が必要</li>
+<li>システムの振る舞いとかはアプリケーションを作成するエンジニアも関わる部分だし知っていてお特な部分満載</li>
+</ul>
+
+<h3 id="solidの原則ってどんなふうに使うの">SOLIDの原則ってどんなふうに使うの？</h3>
+
+<p>(スライドが見つかってない)
+ - オープンクローズドの原則について説明
+ - 原則を理解してコードを描こうぜという話
+ - オープン
+   - 機能を拡張
+ - クローズド
+   - 修正を行わない
+ - 新人と先輩の掛け合いでコードができていくストーリー形式ですこく理解しやすかった。(<a href="http://system-admin-girl.com">シス管系女子</a>っぽかった)
+ - なんとなくレガシーコード改善ガイドとかリファクタリングとかのなんとかコードを綺麗にしていくための手法な感じがあった。
+ - 新人優秀説濃厚</p>
+
+<h2 id="サーバーが完膚なきまでに死んでもmysqlのデータを失わないための表技-https-www-slideshare-net-yoku0825-mysql-90218198"><a href="https://www.slideshare.net/yoku0825/mysql-90218198">サーバーが完膚なきまでに死んでもMySQLのデータを失わないための表技</a></h2>
+
+<ul>
+<li>途中から参加したため、内容が頭に入りきっていない。</li>
+<li>後から見直して知識を蓄えたい。</li>
+</ul>
+
+<h2 id="phpの現場">PHPの現場</h2>
+
+<ul>
+<li>CIの話
+
+<ul>
+<li>ビルドの時間について</li>
+<li>静的解析について</li>
+</ul></li>
+<li>負債もあるが資産でもある</li>
+<li>言語がどうとかではなく、サービスを支える基盤の一つだという認識</li>
+<li>PHPでもやればいい。言語がどうとかではなく使いやすさがどうなのかを意識する</li>
+<li>個人的に今回一番楽しみにしていた<a href="https://php-genba.shin1x1.com">PHPの現場</a>の公開収録だった</li>
+<li>CAのゲーム事業がどういう形でPHPを採用して実運用に載せているのかとか、言語ということを意識せずサービスを支えるものとしてPHPを資産として育てて行こうという感じがすごくよかった。</li>
+</ul>
+
+<h2 id="bear-sunday">BEAR.Sunday</h2>
+
+<ul>
+<li>DI, AOP, Rest</li>
+<li>さらっと流れたがオブジェクトのビジュアライザーが良さそうだった<a href="https://github.com/koriym/print_o">printo</a></li>
+<li>アプリケーションは1つの大きなオブジェクトとして扱う</li>
+<li>ModelをControllerからしか呼べないんじゃなくてどこからでも呼べるようになる</li>
+<li>できる限りお互いのオブジェクト同士の関係を疎結合にするためにインターフェースを利用する</li>
+<li>新しい概念の考え方の提唱のような感じで目新しかった</li>
+</ul>
+
+<h2 id="phpstanで始める継続的静的解析-https-speakerdeck-com-hirak-php-static-analysis"><a href="https://speakerdeck.com/hirak/php-static-analysis">PHPStanで始める継続的静的解析</a></h2>
+
+<ul>
+<li>いいコードを見極める方法の2つのアプローチdynamic / static
+
+<ul>
+<li>dynamic
+
+<ul>
+<li>テスト</li>
+</ul></li>
+<li>static
+
+<ul>
+<li>コードレビュー, 静的検査</li>
+</ul></li>
+</ul></li>
+<li>PHPStormではない静的解析ツール
+
+<ul>
+<li><a href="https://github.com/phpstan/phpstan">phpstan</a></li>
+<li>静的解析ツールを走らせてコードを動かさずにコードを検査
+
+<ul>
+<li>CIと連携して<a href="https://github.com/haya14busa/reviewdog">reviewdog</a>などで厳しめのルールはPull Requestにコメント</li>
+</ul></li>
+</ul></li>
+<li>100%静的に頼るのではなく動的も織り交ぜる
+
+<ul>
+<li>不安ならユニットテスト</li>
+</ul></li>
+<li>動的なテストだけで品質を担保するんじゃなくて静的にもコードを保護するのも未然にバグを防ぐには有用だよなぁ</li>
+<li>reviewdogをbitbucketみたいに他のサービスでも反映されるようになったら使いやすそう
+
+<ul>
+<li><a href="https://github.com/haya14busa/reviewdog/issues/113">Add support for BitBucket · Issue #113 · haya14busa/reviewdog · GitHub</a></li>
+</ul></li>
+</ul>
+
+<h2 id="まとめ">まとめ</h2>
+
+<p>全体的にかなり密度の濃い内容ばかりでとても楽しかった!!!<br />
+他のPHPerの空気感とか新しく自分の中で検索ワードが増えたのはデカかった。<br />
+仕事でぺちぺちすることも多いのでためになったこともあったし、改めてなんか使ってみたいなーとか思うものを出てきていたので、github潜ってコード追ってみようかな。</p>
+
+                </section>
+            </article>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://github.com/gtongy">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2018 <i class="fa fa-heart" aria-hidden="true"></i> gtongy
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://gtongy.github.io/chick-tack/js/jquery-3.3.1.min.js"></script>
+<script src="https://gtongy.github.io/chick-tack/js/main.js"></script>
+<script src="https://gtongy.github.io/chick-tack/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-89451571-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+    </body>
+</html>
