@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Chick Tack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 27 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Apr 2018 23:00:59 +0900</lastBuildDate>
     
 	<atom:link href="https://gtongy.github.io/chick-tack/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Git</title>
+      <link>https://gtongy.github.io/chick-tack/tags/git/</link>
+      <pubDate>Tue, 17 Apr 2018 23:00:59 +0900</pubDate>
+      
+      <guid>https://gtongy.github.io/chick-tack/tags/git/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Go</title>
