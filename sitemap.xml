@@ -3,22 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://gtongy.github.io/chick-tack/post/laravel-collection/</loc>
+    <loc>https://gtongy.github.io/chick-tack/posts/2018/laravel-collection/</loc>
     <lastmod>2018-05-25T01:06:25+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gtongy.github.io/chick-tack/posts/git-grep/</loc>
+    <loc>https://gtongy.github.io/chick-tack/posts/2018/git-grep/</loc>
     <lastmod>2018-04-17T23:00:59+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gtongy.github.io/chick-tack/posts/phper-kaigi/</loc>
+    <loc>https://gtongy.github.io/chick-tack/posts/2018/phper-kaigi/</loc>
     <lastmod>2018-03-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://gtongy.github.io/chick-tack/posts/first-content/</loc>
+    <loc>https://gtongy.github.io/chick-tack/posts/2018/first-content/</loc>
     <lastmod>2018-02-27T00:00:00+00:00</lastmod>
   </url>
   
@@ -53,7 +53,7 @@
   
   <url>
     <loc>https://gtongy.github.io/chick-tack/tags/php/</loc>
-    <lastmod>2018-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-25T01:06:25+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -64,14 +64,8 @@
   </url>
   
   <url>
-    <loc>https://gtongy.github.io/chick-tack/post/</loc>
-    <lastmod>2018-05-25T01:06:25+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://gtongy.github.io/chick-tack/posts/</loc>
-    <lastmod>2018-04-17T23:00:59+09:00</lastmod>
+    <lastmod>2018-05-25T01:06:25+09:00</lastmod>
     <priority>0</priority>
   </url>
   

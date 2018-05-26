@@ -6,35 +6,44 @@
     <description>Recent content in Posts on Chick Tack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 17 Apr 2018 23:00:59 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 25 May 2018 01:06:25 +0900</lastBuildDate>
     
 	<atom:link href="https://gtongy.github.io/chick-tack/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>LaravelのCollectionについてソースを少しかじってみた</title>
+      <link>https://gtongy.github.io/chick-tack/posts/2018/laravel-collection/</link>
+      <pubDate>Fri, 25 May 2018 01:06:25 +0900</pubDate>
+      
+      <guid>https://gtongy.github.io/chick-tack/posts/2018/laravel-collection/</guid>
+      <description>LaravelのCollectionについてソースを少しかじってみた 最近本家のコードを追ってみていて、laravelのcollectionから学べることが多くて面白かった。 そもそもCollectionってどんなことができるか？ データ配列を操作するためのラッパークラス。 標準クラスでは表現しきれないよう</description>
+    </item>
+    
+    <item>
       <title>git-grepのすゝめ</title>
-      <link>https://gtongy.github.io/chick-tack/posts/git-grep/</link>
+      <link>https://gtongy.github.io/chick-tack/posts/2018/git-grep/</link>
       <pubDate>Tue, 17 Apr 2018 23:00:59 +0900</pubDate>
       
-      <guid>https://gtongy.github.io/chick-tack/posts/git-grep/</guid>
+      <guid>https://gtongy.github.io/chick-tack/posts/2018/git-grep/</guid>
       <description>はじめに 普段複数人で開発をしてると、実装を追って調査が必要な場面が多々あります。 実装の影響範囲を調べる時に内部の実装を事細かに追う必要が出てきますが、そんな時git-grepは高速に検索を行える便利なコマンドです。 そんなgit-grepで普段使ってて便利だなと思ったコマンドを何個かあげます。 基本 正規</description>
     </item>
     
     <item>
       <title>PHPer Kaigiに行ってきた</title>
-      <link>https://gtongy.github.io/chick-tack/posts/phper-kaigi/</link>
+      <link>https://gtongy.github.io/chick-tack/posts/2018/phper-kaigi/</link>
       <pubDate>Sat, 10 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://gtongy.github.io/chick-tack/posts/phper-kaigi/</guid>
+      <guid>https://gtongy.github.io/chick-tack/posts/2018/phper-kaigi/</guid>
       <description>昨日一昨日と2日に渡ってPHPerKaigiに行ってきました。 どんなことはなしてたかの頭の整理がしたかった 自分の中で熱がほとばしってるうちに書いておきたかった のもあってブログ書きました。 まだ上がっていないスライドは後々更新しようかなと思ってます。 1日目 PHPでテスティングフレームワークを実装する</description>
     </item>
     
     <item>
       <title>Hugoを使って新しくブログを開設しました</title>
-      <link>https://gtongy.github.io/chick-tack/posts/first-content/</link>
+      <link>https://gtongy.github.io/chick-tack/posts/2018/first-content/</link>
       <pubDate>Tue, 27 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://gtongy.github.io/chick-tack/posts/first-content/</guid>
+      <guid>https://gtongy.github.io/chick-tack/posts/2018/first-content/</guid>
       <description>新しくブログを立ち上げました。 ブログを立ち上げるに当たって 気軽にサクッと書いてあげられる感じがいい 記事を書いて公開するまでなるべくブラウザを介したくない ブログの立ち上げが早ければいいなぁ 以上の点で何かないかと色々と調べていたら、静的サイトジェネレータというものがどうやら良さげ。 記事もマークダウンで書</description>
     </item>
     
