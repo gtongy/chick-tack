@@ -39,11 +39,29 @@
     </item>
     
     <item>
+      <title>PHPer Kaigiに行ってきた</title>
+      <link>https://gtongy.github.io/chick-tack/posts/phper-kaigi/</link>
+      <pubDate>Sat, 10 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gtongy.github.io/chick-tack/posts/phper-kaigi/</guid>
+      <description>昨日一昨日と2日に渡ってPHPerKaigiに行ってきました。 どんなことはなしてたかの頭の整理がしたかった 自分の中で熱がほとばしってるうちに書いておきたかった のもあってブログ書きました。 まだ上がっていないスライドは後々更新しようかなと思ってます。 1日目 PHPでテスティングフレームワークを実装する</description>
+    </item>
+    
+    <item>
       <title>Hugoを使って新しくブログを開設しました</title>
       <link>https://gtongy.github.io/chick-tack/posts/2018/first-content/</link>
       <pubDate>Tue, 27 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>https://gtongy.github.io/chick-tack/posts/2018/first-content/</guid>
+      <description>新しくブログを立ち上げました。 ブログを立ち上げるに当たって 気軽にサクッと書いてあげられる感じがいい 記事を書いて公開するまでなるべくブラウザを介したくない ブログの立ち上げが早ければいいなぁ 以上の点で何かないかと色々と調べていたら、静的サイトジェネレータというものがどうやら良さげ。 記事もマークダウンで書</description>
+    </item>
+    
+    <item>
+      <title>Hugoを使って新しくブログを開設しました</title>
+      <link>https://gtongy.github.io/chick-tack/posts/first-content/</link>
+      <pubDate>Tue, 27 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gtongy.github.io/chick-tack/posts/first-content/</guid>
       <description>新しくブログを立ち上げました。 ブログを立ち上げるに当たって 気軽にサクッと書いてあげられる感じがいい 記事を書いて公開するまでなるべくブラウザを介したくない ブログの立ち上げが早ければいいなぁ 以上の点で何かないかと色々と調べていたら、静的サイトジェネレータというものがどうやら良さげ。 記事もマークダウンで書</description>
     </item>
     
