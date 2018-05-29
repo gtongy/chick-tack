@@ -1,7 +1,7 @@
 baseurl = "https://gtongy.github.io/chick-tack/"
 canonifyurls = true
 languageCode = "en"
-title = "Chick Tack"
+title = "Chick Tack - 駆け出しPHPerエンジニアの技術ブログです"
 theme = "hugo-theme-cactus-plus"
 googleAnalytics = "UA-89451571-2"
 pygmentscodefences = true
@@ -9,7 +9,10 @@ pygmentsstyle = "monokai"
 hasCJKLanguage = true
 SummaryLength = 150
 [params]
+	description = "Chick Tack - Chick Tackは駆け出しPHPerエンジニアの技術ブログです。日々調べて気になったこと、新しく知ったことを中心につらつらと書き連ねます。"
 	author = "gtongy"
+	enableTwitterCard = true
+	twitter = "gtongy1"
 	enableSummary = true
 	useDescriptionReplaceSummary = false
 	iconFont = "font-awesome"
@@ -17,4 +20,5 @@ SummaryLength = 150
 	enableBaiduAnalytics = false
 [social]
 	github-square = "https://github.com/gtongy"
-
+[permalinks]
+	post = "/:year/:title/"
