@@ -1,3 +1,4 @@
+language: bash
 deploy:
   github_token: $GITHUB_TOKEN
   provider: script
