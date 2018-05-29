@@ -1,0 +1,6 @@
+deploy:
+  github_token: $GITHUB_TOKEN
+  provider: script
+  script: chmod u+x deploy.sh && sh ./deploy.sh
+  on:
+    branch: master
