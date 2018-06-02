@@ -1,19 +1,26 @@
 language: go
+sudo: false
+dist: trusty
 go:
-  - 1.7
-env:
-  global:
-    - GIT_AUTHOR_EMAIL=32930281+gtongy@users.noreply.github.com
-    - GIT_AUTHOR_NAME=gtongy
-    - HUGO_VERSION=0.36.1
-    - GIT_URL=https://${GITHUB_TOKEN}@github.com/gtongy/chick-tack.git
+  - 1.9.5
+os:
+  - linux
+  - osx
+matrix:
+  fast_finish: true
 install:
-  - go get -v github.com/spf13/hugo
+  - go get github.com/magefile/mage
+  - mage -v vendor
+script:
+  - mage -v hugoRace
+  - mage -v check
+  - ./hugo -s docs/
+  - ./hugo --renderToMemory -s docs/
 before_deploy:
   - git remote set-url origin ${GIT_URL}
   - git fetch origin gh-pages:remotes/origin/gh-pages
   - git worktree add -B gh-pages public origin/gh-pages
-  - hugo -t "hugo-theme-cactus-plus"
+  - ./hugo -t "hugo-theme-cactus-plus"
 deploy:
   github_token: $GITHUB_TOKEN
   provider: script
