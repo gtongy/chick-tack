@@ -1,7 +1,7 @@
 ---
 date: "2018-06-02"
-linktitle: "MySQL: Duplicate entry for primary keyでつまづいた話"
-title: "MySQL: Duplicate entry for primary keyでつまづいた話"
+linktitle: "MySQL: Duplicate entry for primary keyでつまづいた"
+title: "MySQL: Duplicate entry for primary keyでつまづいた"
 tags: ["MySQL"]
 weight: 16
 ---
