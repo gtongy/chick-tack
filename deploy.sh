@@ -15,6 +15,8 @@ echo "DIST_DIR : ${DIST_DIR}"
 rm -rf ${DIST_DIR}/* || exit 0
 ./binaries/hugo -t "hugo-theme-cactus-plus"
 cd ${DIST_DIR}
+git init
+git checkout -b gh-pages
 git add -A .
 echo ${msg}
 git commit -m "${msg}"
