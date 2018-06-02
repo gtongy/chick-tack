@@ -2,7 +2,7 @@
 date: 2018-04-17T23:00:59+09:00
 linktitle: "git-grepのすゝめ"
 title: "git-grepのすゝめ"
-tags: ["git"]
+tags: ["git", "git-grep"]
 weight: 16
 ---
 
