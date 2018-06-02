@@ -1,4 +1,6 @@
-language: bash
+language: go
+go:
+  - 1.7
 env:
   global:
     - GIT_AUTHOR_EMAIL=32930281+gtongy@users.noreply.github.com
@@ -6,13 +8,12 @@ env:
     - HUGO_VERSION=0.36.1
     - GIT_URL=https://${GITHUB_TOKEN}@github.com/gtongy/chick-tack.git
 install:
-  - wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
-  - tar xzf hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
+  - go get -u -v github.com/spf13/hugo
 before_deploy:
   - git remote set-url origin ${GIT_URL}
   - git fetch origin gh-pages:remotes/origin/gh-pages
   - git worktree add -B gh-pages public origin/gh-pages
-  - ./hugo -t "hugo-theme-cactus-plus"
+  - hugo -t "hugo-theme-cactus-plus"
 deploy:
   github_token: $GITHUB_TOKEN
   provider: script
