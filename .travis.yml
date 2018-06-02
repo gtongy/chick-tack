@@ -4,17 +4,15 @@ env:
   global:
     - GIT_AUTHOR_EMAIL=32930281+gtongy@users.noreply.github.com
     - GIT_AUTHOR_NAME=gtongy
-    - GIT_URL=https://${GIT_TOKEN}@github.com/gtongy/chick-tack.git
-before_script:
-  - git remote set-url origin ${GIT_URL}
-  - git fetch origin gh-pages:remotes/origin/gh-pages
-  - git worktree add -B gh-pages public origin/gh-pages
-  - git clone https://github.com/nodejh/hugo-theme-cactus-plus.git ./themes/hugo-theme-cactus-plus
 script:
   - ./binaries/hugo version
-deploy:
-  github_token: $GITHUB_TOKEN
-  provider: script
-  script: chmod u+x deploy.sh && sh ./deploy.sh
-  on:
-    branch: master
+after_success:
+  - openssl aes-256-cbc -K $encrypted_8c176495c53a_key -iv $encrypted_8c176495c53a_iv -in travis-rsa.enc -out ~/.ssh/id_rsa -d
+  - chmod 600 ~/.ssh/id_rsa
+  - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+  - git config --global user.email ${GIT_AUTHOR_EMAIL}
+  - git config --global user.name ${GIT_AUTHOR_NAME}
+  - git clone git@github.com:gtongy/chick-tack.git
+  - cd chick-tack
+  - git clone https://github.com/nodejh/hugo-theme-cactus-plus.git ./themes/hugo-theme-cactus-plus
+  - chmod u+x deploy.sh && sh ./deploy.sh
