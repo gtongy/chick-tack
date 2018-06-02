@@ -6,6 +6,7 @@ tags: ["MySQL"]
 weight: 16
 ---
 
+![This is a image](/images/2018/mysql-deplicate-key.png)
 ## はじめに
 
 MySQLでレコードをINSERTしようとした時に、一意性制約でレコードをINSERT出来ずにつまづいた。
