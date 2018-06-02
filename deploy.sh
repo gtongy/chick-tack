@@ -9,7 +9,8 @@ fi
 # サイトを生成するディレクトリ
 DIST_DIR=./public
 echo "DIST_DIR : ${DIST_DIR}"
-
+git pull origin master > /dev/null 2>&1
+./binaries/hugo -t "hugo-theme-cactus-plus"
 # 変更があったらcommit
 cd ${DIST_DIR}
 git add .
