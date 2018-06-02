@@ -11,10 +11,10 @@ before_script:
   - git worktree add -B gh-pages public origin/gh-pages
   - git clone https://github.com/nodejh/hugo-theme-cactus-plus.git ./themes/hugo-theme-cactus-plus
 script:
-  - ./binaries/hugo -t "hugo-theme-cactus-plus"
+  - ./binaries/hugo version
 deploy:
   github_token: $GITHUB_TOKEN
   provider: script
-  script: chmod u+x deploy.sh && sh ./deploy.sh
+  script: ./binaries/hugo -t "hugo-theme-cactus-plus" && chmod u+x deploy.sh && sh ./deploy.sh
   on:
     branch: master
