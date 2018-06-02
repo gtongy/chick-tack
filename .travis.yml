@@ -7,6 +7,7 @@ env:
     - GIT_URL=https://${GIT_TOKEN}@github.com/gtongy/chick-tack.git
 before_script:
   - git remote set-url origin ${GIT_URL}
+  - git pull origin master > /dev/null 2>&1
   - git fetch origin gh-pages:remotes/origin/gh-pages
   - git worktree add -B gh-pages public origin/gh-pages
   - git clone https://github.com/nodejh/hugo-theme-cactus-plus.git ./themes/hugo-theme-cactus-plus
