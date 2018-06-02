@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Git on Chick Tack - 駆け出しPHPerエンジニアの技術ブログです</title>
-    <link>https://gtongy.github.io/chick-tack/tags/git/</link>
-    <description>Recent content in Git on Chick Tack - 駆け出しPHPerエンジニアの技術ブログです</description>
+    <title>Git Grep on Chick Tack - 駆け出しPHPerエンジニアの技術ブログです</title>
+    <link>https://gtongy.github.io/chick-tack/tags/git-grep/</link>
+    <description>Recent content in Git Grep on Chick Tack - 駆け出しPHPerエンジニアの技術ブログです</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Tue, 17 Apr 2018 23:00:59 +0900</lastBuildDate>
     
-	<atom:link href="https://gtongy.github.io/chick-tack/tags/git/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://gtongy.github.io/chick-tack/tags/git-grep/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

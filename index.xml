@@ -5,11 +5,20 @@
     <link>https://gtongy.github.io/chick-tack/</link>
     <description>Recent content on Chick Tack - 駆け出しPHPerエンジニアの技術ブログです</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Fri, 25 May 2018 01:06:25 +0900</lastBuildDate>
+    <language>ja</language>
+    <lastBuildDate>Sat, 02 Jun 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://gtongy.github.io/chick-tack/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MySQL: Duplicate entry for primary keyでつまづいた</title>
+      <link>https://gtongy.github.io/chick-tack/posts/2018/mysql-duplicate-unique-key/</link>
+      <pubDate>Sat, 02 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://gtongy.github.io/chick-tack/posts/2018/mysql-duplicate-unique-key/</guid>
+      <description>はじめに MySQLでレコードをINSERTしようとした時に、一意性制約でレコードをINSERT出来ずにつまづいた。 表示されたエラーコード SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry &amp;#39;x x xxxx&amp;#39; for key &amp;#39;unique-key-name&amp;#39; そもそも一意性制約って？ The UNIQUE constraint ensures that all values in a column are different. SQL UNIQUE Constraint 列内の全ての値が異なっていることを保証する制約のこと。 例えば下のクエリで例を示す。 CREATE</description>
+    </item>
     
     <item>
       <title>LaravelのCollectionについてソースを少しかじってみた</title>
