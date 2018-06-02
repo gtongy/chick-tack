@@ -1,12 +1,11 @@
 #!/bin/bash
 
-# deploy github pages
-echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
-cd public
-msg="rebuilding site `date`"
-if [ $# -eq 1 ]
-  then msg="$1"
-fi
+DIST_DIR=./public
+echo "DIST_DIR : ${DIST_DIR}"
+cd ${DIST_DIR}
 git add .
+d=`date +"%Y/%m/%d %k:%M:%S"`
 git diff --cached --exit-code --quiet || git commit -m "$msg"
-git push -f origin gh-pages
+echo "Push to GitHub"
+git push origin gh-pages > /dev/null 2>&1
+echo "Successfully deployed."
