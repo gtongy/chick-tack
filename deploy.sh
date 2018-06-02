@@ -9,12 +9,13 @@ fi
 # サイトを生成するディレクトリ
 DIST_DIR=./public
 echo "DIST_DIR : ${DIST_DIR}"
+rm -rf ${DIST_DIR}/* || exit 0
 ./binaries/hugo -t "hugo-theme-cactus-plus"
-# 変更があったらcommit
 cd ${DIST_DIR}
-git add .
-d=`date +"%Y/%m/%d %k:%M:%S"`
-git diff --cached --exit-code --quiet || git commit -m "${msg}"
+# 変更があったらcommit
+git add -A .
+echo ${msg}
+git commit -m "${msg}"
 
 # GitHubにpush
 echo "Push to GitHub"
