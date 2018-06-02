@@ -1,5 +1,8 @@
 #!/bin/bash
 
+git clone git@github.com:gtongy/chick-tack.git
+cd chick-tack
+git clone https://github.com/nodejh/hugo-theme-cactus-plus.git ./themes/hugo-theme-cactus-plus
 # deploy github pages message
 msg="rebuilding site `date`"
 if [ $# -eq 1 ]
@@ -12,7 +15,7 @@ echo "DIST_DIR : ${DIST_DIR}"
 rm -rf ${DIST_DIR}/* || exit 0
 ./binaries/hugo -t "hugo-theme-cactus-plus"
 cd ${DIST_DIR}
-# 変更があったらcommit
+git init
 git add -A .
 echo ${msg}
 git commit -m "${msg}"
