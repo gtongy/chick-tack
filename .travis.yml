@@ -5,7 +5,9 @@ env:
     - GIT_AUTHOR_EMAIL=32930281+gtongy@users.noreply.github.com
     - GIT_AUTHOR_NAME=gtongy
     - secure: "GuO4JSQJSiAal964oLvDn14Ek0eFEYfFn+Oe56L+h3pjZIoj5hoinTcFwuc6hnvU82eUhSew2kTp+0t7mkGjJVH1UVm/824wDVFe3uis1n910Bq3PMFsGc028Hj8g3iSpcgiRSdB+zA9HtMOIcBctGyAnVDpbQ2R95BeIWRvyHWdiU7vsFKtgShCPQt8bp2kk2r6Sr4UudwXq+uXi1Vko3odWImJWc0xsUgBAzqzhA8BEg8YxH3eDPh/H2VUiOBvyMHNOrQs0It6whAD9YsZySCMzI4J5C/o1eLkigKFd4btlr/qY38es4GnjGn5a+hSRrTzUV5jKMMk1r9xTLsVY3Csc4CL/C6lk1jjhPmKvc9Kx40sa5WsEx9jhDLv4CcBGbKeBSFhBaFmFHujaQuAwlgYznuvqUGAjcyDlchrx1P8wW9RTKrNY2BM436LkLcroSXIsw10ITr8opEpXBaNXEcQII4A2LuHqJbfoDMh+7e/4C5J7ybyZcsbj8GTW2dYg7ST1Kw4ZfHjfe99/9K6o8z4FYEjV5uv1K/SbRRF62eAzR/pOCBN4iGlbq0Axe7SA6/NpbQ+fu0l9njrtpuc2pgE8ZYwKs6OHERaP910+9SBxrtL5hrpZONvI+04o7mtPO+tB3NI7Nk+teTi+EfS9o9LkRAd4jGIU9oo24jxZgw="
+    - GIT_URL=https://${GH_TOKEN}@github.com/gtongy/chick-tack.git
 script:
+  - git remote set-url origin ${GIT_URL}
   - ./binaries/hugo version
   - chmod u+x deploy.sh && sh ./deploy.sh
 before_install:
