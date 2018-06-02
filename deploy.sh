@@ -24,5 +24,5 @@ echo "${msg}"
 
 # GitHubにpush
 echo "Push to GitHub"
-git push --quiet https://$GH_TOKEN@github.com/gtongy/chick-tack.git gh-pages > /dev/null 2>&1
+git push --quiet --set-upstream https://$GH_TOKEN@github.com/gtongy/chick-tack.git gh-pages > /dev/null 2>&1
 echo "Successfully deployed."
