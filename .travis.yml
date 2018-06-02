@@ -8,7 +8,7 @@ env:
     - HUGO_VERSION=0.36.1
     - GIT_URL=https://${GITHUB_TOKEN}@github.com/gtongy/chick-tack.git
 install:
-  - go get -u -v github.com/spf13/hugo
+  - go get -v github.com/spf13/hugo
 before_deploy:
   - git remote set-url origin ${GIT_URL}
   - git fetch origin gh-pages:remotes/origin/gh-pages
