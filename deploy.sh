@@ -20,7 +20,6 @@ cd ${DIST_DIR}
 git add --all
 echo ${msg}
 git commit -m "${msg}"
-echo "${msg}"
 
 # GitHubにpush
 echo "Push to GitHub"
