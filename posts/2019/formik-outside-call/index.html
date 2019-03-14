@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta content="FormikのComponents外からメソッドを呼び出したい &middot; Chick Tack - 駆け出しPHPerエンジニアの技術ブログです" name="title">
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="FormikのComponents外からメソッドを呼び出したい" />
+	<meta property="og:image" content="https://gtongy.github.io/chick-tack/images/avatar.png" />
+	<meta property="og:url" content="https://gtongy.github.io/chick-tack/posts/2019/formik-outside-call/" />
+	<meta property="og:site_name" content="Chick Tack"/>
+	
+		
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://gtongy.github.io/chick-tack/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="FormikのComponents外からメソッドを呼び出したい"/>
+  <meta name="twitter:description" content="はじめに React とか、React Native で実装するときに Form の実装がやたらと辛い。state で form 内全ての要素を state で管理しなきゃいけないのはぶっちゃけ初見殺しだった。 なんかいい感じの外部ライブラリないかなーと探してみると redux form formik 辺りが有名なライブラリとして見つかる。 個人的な意見としては、redux の処理って必要以上に"/>
+  
+    <meta name="twitter:site" content="@gtongy1"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@gtongy"/>
+  
+
+
+
+	
+	
+		<meta name="author" content="gtongy">
+	
+	<meta name="description" content="はじめに React とか、React Native で実装するときに Form の実装がやたらと辛い。state で form 内全ての要素を state で管理しなきゃいけないのはぶっちゃけ初見殺しだった。 なんかいい感じの外部ライブラリないかなーと探してみると redux form formik 辺りが有名なライブラリとして見つかる。 個人的な意見としては、redux の処理って必要以上に">
+	<meta property="og:description" content="はじめに React とか、React Native で実装するときに Form の実装がやたらと辛い。state で form 内全ての要素を state で管理しなきゃいけないのはぶっちゃけ初見殺しだった。 なんかいい感じの外部ライブラリないかなーと探してみると redux form formik 辺りが有名なライブラリとして見つかる。 個人的な意見としては、redux の処理って必要以上に" />
+	<meta name="generator" content="Hugo 0.36.1" />
+	<title>FormikのComponents外からメソッドを呼び出したい &middot; Chick Tack - 駆け出しPHPerエンジニアの技術ブログです</title>
+	<link rel="shortcut icon" href="https://gtongy.github.io/chick-tack/images/favicon.ico">
+	<link rel="stylesheet" href="https://gtongy.github.io/chick-tack/css/style.css">
+	<link rel="stylesheet" href="https://gtongy.github.io/chick-tack/css/highlight.css">
+	
+	<link rel="stylesheet" href="https://gtongy.github.io/chick-tack/css/font-awesome.min.css">
+	
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai.min.css">
+
+	
+
+	
+</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://gtongy.github.io/chick-tack/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://gtongy.github.io/chick-tack/posts'>Archive</a>
+	<a href='https://gtongy.github.io/chick-tack/tags'>Tags</a>
+
+	
+
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        FormikのComponents外からメソッドを呼び出したい
+                    </h1>
+                    <h2 class="headline">
+                    Mar 9, 2019 23:53
+                    · 1074 words
+                    · 3 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://gtongy.github.io/chick-tack/tags/react">react</a>
+                          
+                              <a href="https://gtongy.github.io/chick-tack/tags/react-native">react native</a>
+                          
+                              <a href="https://gtongy.github.io/chick-tack/tags/formik">formik</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                <section id="post-body">
+                    
+
+<h2 id="はじめに">はじめに</h2>
+
+<p>React とか、React Native で実装するときに Form の実装がやたらと辛い。state で form 内全ての要素を state で管理しなきゃいけないのはぶっちゃけ初見殺しだった。
+なんかいい感じの外部ライブラリないかなーと探してみると</p>
+
+<ul>
+<li>redux form</li>
+<li>formik</li>
+</ul>
+
+<p>辺りが有名なライブラリとして見つかる。
+個人的な意見としては、redux の処理って必要以上に記述しすぎると Component が持つべき責任を飛び越えすぎて処理が追いづらくなってくるんじゃないかという懸念があって、store には全体の状態を管理するものまでに留められるのなら、出来るだけ小さく留めたい。<br />
+特に form とかはその Component 内で完結出来るものなような気がしていたので、そう言う意味では formik って結構ドンピシャに使いやすい。<br />
+しかし、Component の内部でなんとか出来る素晴らしさはもちろんいいが、要件によっては逆に外部から値をとってくるとかの処理があったりすると小技が必要だったりする。<br />
+React Native で QR コード読み取り等で他の画面に遷移したりして別のコンポーネントに移動して Form の内容を reset したい時に今回ハマりました。<br />
+今回はそんな時に有用な小技の紹介です。</p>
+
+<h2 id="tl-dr">TL;DR</h2>
+
+<p>React の Refs を使って、Formik の Component を外部から参照する</p>
+
+<h2 id="そもそも-react-の-refs-とは">そもそも React の Refs とは？</h2>
+
+<p>公式の記述をそのまま引用して</p>
+
+<blockquote>
+<p>Refs provide a way to access DOM nodes or React elements created in the render method
+<a href="https://reactjs.org/docs/refs-and-the-dom.html">https://reactjs.org/docs/refs-and-the-dom.html</a></p>
+</blockquote>
+
+<p>と言うことらしいです。Refs は render メソッド内の定義された React elements もしくは DOM 要素へアクセスするための API です。
+正直、上記のリンクに記述された内容をみる限り今回の要件にバッチリあってそうなのでこれを使って実装しました。</p>
+
+<h2 id="実装">実装</h2>
+
+<p>下記の Formik の Component に対して<code>React.createRef()</code>で参照用のオブジェクトを実装する必要があるので</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx">import SampleForm from &#39;./SampleForm&#39;;
+import { View } from &#39;react-native&#39;;
+
+class ParentComponent extends Component {
+  constructor(props) {
+   super(props);
+   this.formRef = React.createRef();
+  }
+  render() {
+    return (
+      &lt;View&gt;
+        &lt;SampleForm name=&#34;hoge&#34; ref={this.formRef}&gt;
+      &lt;/View&gt;
+    );
+  }
+}</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx">import { Button, View, Text } from &#39;react-native&#39;;
+
+class SampleForm extends Component {
+  render() {
+    const { ref, name } = this.props;
+    return (
+      &lt;Formik
+        ref={ref}
+        initialValues={{ name: name }}
+      &gt;
+        {({ values, handleSubmit, handleChange }) =&gt; {
+          return (
+            &lt;View&gt;
+              &lt;View&gt;
+                &lt;TextInput
+                  onChangeText={handleChange(&#34;name&#34;)}
+                  value={values.name}
+                  name=&#34;name&#34;
+                /&gt;
+              &lt;/View&gt;
+              &lt;Button onPress={handleSubmit}&gt;
+                &lt;Text&gt;register&lt;/Text&gt;
+              &lt;/Button&gt;
+            &lt;/Form&gt;
+          );
+        }}
+      &lt;/Formik&gt;
+    );
+  }
+}</code></pre></div>
+<p>のように親から props で refs を渡してあげれば解決です。</p>
+
+<h2 id="ただし注意点">ただし注意点</h2>
+
+<p>なんとなく想像はつきますが、refs を多様すれば何処からでも呼び出せる訳なので汚コードになりやすいです。</p>
+
+<ul>
+<li>フォーカス、テキスト選択、またはメディア再生の管理</li>
+<li>アニメーションの起動</li>
+<li>サードパーティの DOM ライブラリとの統合</li>
+</ul>
+
+<p>等の場合に限って使うべきとドキュメントにも記述があるので、今回で言えばサードパーティの DOM ライブラリとの統合で利用しているのでまあ回避策としてはありなのかな？と思います。</p>
+
+<h2 id="終わりに">終わりに</h2>
+
+<p>Formik、React だとどうしても苦しい Form の扱いやすくかつ簡素にかけるのでおすすめです。</p>
+
+<p><a href="https://jaredpalmer.com/formik/">https://jaredpalmer.com/formik/</a></p>
+
+<p>Form 系のライブラリの一つの選択肢としていじってみるのも楽しいので是非。</p>
+
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fgtongy.github.io%2fchick-tack%2fposts%2f2019%2fformik-outside-call%2f - Formik%e3%81%aeComponents%e5%a4%96%e3%81%8b%e3%82%89%e3%83%a1%e3%82%bd%e3%83%83%e3%83%89%e3%82%92%e5%91%bc%e3%81%b3%e5%87%ba%e3%81%97%e3%81%9f%e3%81%84 by @gtongy1"><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+            
+
+            
+
+            
+                <ul id="post-list" class="archive readmore">
+    <h3>Read more</h3>
+
+    
+    
+    
+        <li>
+            <a href="https://gtongy.github.io/chick-tack/posts/2018/mysql-duplicate-unique-key/">MySQL: Duplicate entry for primary keyでつまづいた<aside class="dates">Jun 2 2018</aside></a>
+        </li>
+    
+        <li>
+            <a href="https://gtongy.github.io/chick-tack/posts/2018/laravel-collection/">LaravelのCollectionについてソースを少しかじってみた<aside class="dates">May 25 2018</aside></a>
+        </li>
+    
+        <li>
+            <a href="https://gtongy.github.io/chick-tack/posts/2018/git-grep/">git-grepのすゝめ<aside class="dates">Apr 17 2018</aside></a>
+        </li>
+    
+        <li>
+            <a href="https://gtongy.github.io/chick-tack/posts/2018/phper-kaigi/">PHPer Kaigiに行ってきた<aside class="dates">Mar 10 2018</aside></a>
+        </li>
+    
+        <li>
+            <a href="https://gtongy.github.io/chick-tack/posts/2018/first-content/">Hugoを使って新しくブログを開設しました<aside class="dates">Feb 27 2018</aside></a>
+        </li>
+    
+</ul>
+
+            
+        </section>
+
+        <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://github.com/gtongy">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2019 <i class="fa fa-heart" aria-hidden="true"></i> gtongy
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+
+        <script src="https://gtongy.github.io/chick-tack/js/jquery-3.3.1.min.js"></script>
+<script src="https://gtongy.github.io/chick-tack/js/main.js"></script>
+<script src="https://gtongy.github.io/chick-tack/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-89451571-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+    </body>
+</html>
