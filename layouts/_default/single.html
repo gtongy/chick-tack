@@ -1,0 +1,66 @@
+{{ partial "head.html" . }}
+    <body>
+       {{ partial "nav.html" . }}
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        {{ .Title }}
+                    </h1>
+                    <h2 class="headline">
+                    {{ .Date.Format "Jan 2, 2006 15:04" }}
+                    · {{ if lt 1 .WordCount }}{{ .WordCount }} words{{ else }}{{ .WordCount }} word{{ end }}
+                    · {{ .ReadingTime }} minute read
+                      <span class="tags">
+                      {{ with .Params.tags }}
+                      {{ if ge (len .) 1 }}
+                          {{ range . }}
+                              <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . }}</a>
+                          {{ end }}
+                      {{ end }}
+                      {{ end}}
+                      </span>
+                    </h2>
+                </header>
+                {{ if .Site.Params.enableToc }}
+                  {{ if .TableOfContents }}
+                    <div id="toc">
+                      {{ .TableOfContents }}
+                    </div>
+                  {{ end }}
+                {{ end }}
+                <section id="post-body">
+                    {{ .Content }}
+                </section>
+            </article>
+
+            {{ if .Site.Params.enableShare }}
+                {{ partial "share.html" . }}
+            {{ end }}
+
+            <br />
+
+            <ins class="adsbygoogle" style="display:block"
+                    data-ad-client="ca-pub-5193360380364380"
+                    data-ad-slot="2072349286"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+
+            {{ if .Site.Params.enableDisqus }}
+                {{ partial "disqus.html" . }}
+            {{ end }}
+
+            {{ if .Site.Params.showLatestPosts }}
+                {{ partial "latest-posts.html" . }}
+            {{ end }}
+        </section>
+
+        {{ partial "footer.html" . }}
+
+        {{ partial "js.html" . }}
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+       </script>
+    </body>
+</html>
