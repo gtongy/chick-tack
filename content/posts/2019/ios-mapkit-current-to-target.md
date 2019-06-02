@@ -2,7 +2,7 @@
 date: 2019-05-27T20:48:59+09:00
 linktitle: '【RxSwift】MapKitを使って現在地を表示させる'
 title: '【RxSwift】MapKitを使って現在地を表示させる'
-tags: ['swift', 'MapKit', 'CoreLocation']
+tags: ['swift', 'MapKit']
 weight: 16
 ---
 
