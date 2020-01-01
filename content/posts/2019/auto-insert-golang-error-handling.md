@@ -1,8 +1,8 @@
 ---
 date: 2019-05-23T19:18:21+09:00
-linktitle: "golangのif err != nil {}面倒だと言ったな？"
-title: "golangのif err != nil {}面倒だと言ったな？"
-tags: ["golang", "karabiner element"]
+linktitle: 'golangのif err != nil {}面倒だと言ったな？'
+title: 'golangのif err != nil {}面倒だと言ったな？'
+tags: ['golang', 'karabiner element']
 weight: 16
 ---
 

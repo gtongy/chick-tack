@@ -1,8 +1,8 @@
 ---
 date: 2019-03-09T23:53:41+09:00
-linktitle: "FormikのComponents外からメソッドを呼び出したい"
-title: "FormikのComponents外からメソッドを呼び出したい"
-tags: ["react", "react native", "formik"]
+linktitle: 'FormikのComponents外からメソッドを呼び出したい'
+title: 'FormikのComponents外からメソッドを呼び出したい'
+tags: ['react', 'react native', 'formik']
 weight: 16
 ---
 
@@ -35,6 +35,8 @@ React の Refs を使って、Formik の Component を外部から参照する
 と言うことらしいです。Refs は render メソッド内の定義された React elements もしくは DOM 要素へアクセスするための API です。
 正直、上記のリンクに記述された内容をみる限り今回の要件にバッチリあってそうなのでこれを使って実装しました。
 
+<!--adsense-->
+
 ## 実装
 
 下記の Formik の Component に対して`React.createRef()`で参照用のオブジェクトを実装する必要があるので
@@ -65,19 +67,12 @@ class SampleForm extends Component {
   render() {
     const { ref, name } = this.props;
     return (
-      <Formik
-        ref={ref}
-        initialValues={{ name: name }}
-      >
+      <Formik ref={ref} initialValues={{ name: name }}>
         {({ values, handleSubmit, handleChange }) => {
           return (
             <View>
               <View>
-                <TextInput
-                  onChangeText={handleChange("name")}
-                  value={values.name}
-                  name="name"
-                />
+                <TextInput onChangeText={handleChange('name')} value={values.name} name="name" />
               </View>
               <Button onPress={handleSubmit}>
                 <Text>register</Text>

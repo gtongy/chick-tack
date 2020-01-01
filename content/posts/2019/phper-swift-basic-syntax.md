@@ -1,8 +1,8 @@
 ---
 date: 2019-03-29T20:05:30+09:00
-linktitle: "業務PHPerだがSwiftに入門した。基本構文編"
-title: "業務PHPerだがSwiftに入門した。基本構文編"
-tags: ["PHP", "Swift"]
+linktitle: '業務PHPerだがSwiftに入門した。基本構文編'
+title: '業務PHPerだがSwiftに入門した。基本構文編'
+tags: ['PHP', 'Swift']
 weight: 16
 ---
 
@@ -298,6 +298,8 @@ var_dump($taro->getName()); // "taro
 
 Swift だと、`public private(set) var (プロパティ名): 型名`で、setter は private, getter は public のようなアクセス権の切り分けができるみたい。
 基本に記述だけならまあとっつきにくさはない。ただ、namespace とかのファイル分割は、Swift と PHP では違うみたい。またファイル分割で困った時に。
+
+<!--adsense-->
 
 ### Struct
 

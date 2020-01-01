@@ -1,8 +1,8 @@
 ---
 date: 2019-05-11T23:43:40+09:00
-linktitle: "RxSwiftでS3へのアップロードを実装してみる"
-title: "RxSwiftでS3へのアップロード機能を実装してみる"
-tags: ["swift", "RxSwift", "AWS", "S3", "Congnito"]
+linktitle: 'RxSwiftでS3へのアップロードを実装してみる'
+title: 'RxSwiftでS3へのアップロード機能を実装してみる'
+tags: ['swift', 'RxSwift', 'AWS', 'S3', 'Congnito']
 weight: 16
 ---
 
@@ -10,19 +10,19 @@ weight: 16
 
 ## はじめに
 
-いざSwiftに入門！...となったのはいいのですが、他の言語でも一般的に必須だろって機能は触っておきたいよねと思ってました。  
-ということで、S3への直接アップロードはやっておきたかった事の一つでもあったのと、RxSwiftを軽く触るにはちょうどいいボリューム感だったので合わせて実装してみました。  
+いざ Swift に入門！...となったのはいいのですが、他の言語でも一般的に必須だろって機能は触っておきたいよねと思ってました。  
+ということで、S3 への直接アップロードはやっておきたかった事の一つでもあったのと、RxSwift を軽く触るにはちょうどいいボリューム感だったので合わせて実装してみました。
 
 ## 使用ライブラリ
 
- - RxSwift
- - RxCocoa
- - AWSS3
- - AWSCognito
+- RxSwift
+- RxCocoa
+- AWSS3
+- AWSCognito
 
-## RxSwiftで実装したサンプル
+## RxSwift で実装したサンプル
 
-以下にgistを載せておきました。詳細はこっちを参照していただけると分かると思います。  
+以下に gist を載せておきました。詳細はこっちを参照していただけると分かると思います。
 
 [RxSwift S3 Upload Sample](https://gist.github.com/gtongy/842c25548a6c264f107aa762a7807830)
 
@@ -60,32 +60,34 @@ weight: 16
 11 directories, 15 files
 ```
 
-## そもそもなんでRxSwift使ったの？
+## そもそもなんで RxSwift 使ったの？
 
 正直このくらいの規模感ならわざわざ使わなくてもいいかな...とも思いましたが、これくらいの規模感だからこそ試してみれるよねという事もあるよなと思い実装してみた感じです。  
-実際に簡単に実装してみて思うのが、ViewControllerにロジックが寄らないので、あるべき責任が分散して実装出来て良さそうだけど、学習コストは高いなとは思いました。  
-簡単なtap等のサンプルはあるけど、個人開発で一から作ろうと思って実装をやってみよう！ってなって初めから構文を追うには初めは時間がどうしてもかかるかも....。  
+実際に簡単に実装してみて思うのが、ViewController にロジックが寄らないので、あるべき責任が分散して実装出来て良さそうだけど、学習コストは高いなとは思いました。  
+簡単な tap 等のサンプルはあるけど、個人開発で一から作ろうと思って実装をやってみよう！ってなって初めから構文を追うには初めは時間がどうしてもかかるかも....。  
 自分がまだ知らないだけだからっていうのもあるのですが。
 
-## RxSwiftを利用してどこを分離したのか
+## RxSwift を利用してどこを分離したのか
 
 主に
 
- - 画像をライブラリから選択してくる処理を行う箇所(UIImagePickerControllerDelegate, UIImagePickerController)
- - 単純なボタンクリックによるアクションの制御(UIButton, UIImageView)
+- 画像をライブラリから選択してくる処理を行う箇所(UIImagePickerControllerDelegate, UIImagePickerController)
+- 単純なボタンクリックによるアクションの制御(UIButton, UIImageView)
 
 を分離しています。
 
-## UIImagePickerControllerをRxSwiftから呼び出す
+<!--adsense-->
 
-公式のSampleから以下3ファイルをコピー
+## UIImagePickerController を RxSwift から呼び出す
 
- - [RxImagePickerDelegateProxy.swift](https://github.com/ReactiveX/RxSwift/blob/master/RxExample/Extensions/RxImagePickerDelegateProxy.swift)
- - [UIImagePickerController+Rx.swift](https://github.com/ReactiveX/RxSwift/blob/master/RxExample/Extensions/UIImagePickerController%2BRx.swift)
- - [UIImagePickerController+RxCreate.swift](https://github.com/ReactiveX/RxSwift/blob/master/RxExample/RxExample/Examples/ImagePicker/UIImagePickerController%2BRxCreate.swift)
+公式の Sample から以下 3 ファイルをコピー
 
-上記を取り込んで、UIImagePickerControllerをObservableなものとして扱えるように拡張を行います。
-上記を保存したあと、``AppDelegate.swift``に
+- [RxImagePickerDelegateProxy.swift](https://github.com/ReactiveX/RxSwift/blob/master/RxExample/Extensions/RxImagePickerDelegateProxy.swift)
+- [UIImagePickerController+Rx.swift](https://github.com/ReactiveX/RxSwift/blob/master/RxExample/Extensions/UIImagePickerController%2BRx.swift)
+- [UIImagePickerController+RxCreate.swift](https://github.com/ReactiveX/RxSwift/blob/master/RxExample/RxExample/Examples/ImagePicker/UIImagePickerController%2BRxCreate.swift)
+
+上記を取り込んで、UIImagePickerController を Observable なものとして扱えるように拡張を行います。
+上記を保存したあと、`AppDelegate.swift`に
 
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -112,16 +114,18 @@ UIImagePickerController.rx.createWithParent(input.targetController) { picker in
 .bind(to: input.previewImage.rx.image)
 .disposed(by: self.disposeBag)
 ```
-のように、UIImagePickerControllerをObservableなObjectとして扱うことが出来ます。
 
-## UIImagePickerControllerで選択したファイルのbind
+のように、UIImagePickerController を Observable な Object として扱うことが出来ます。
+
+## UIImagePickerController で選択したファイルの bind
 
 選択するボタンを
+
 ```swift
 selectPhotoButton.rx.tap.asObservable()
 ```
 
-のように、tapに対してObservableなものへ変換し、ViewController側でViewModelを宣言します。その後、
+のように、tap に対して Observable なものへ変換し、ViewController 側で ViewModel を宣言します。その後、
 
 ```swift
 func setup(input: SelectPhotoViewModelInput) {
@@ -145,29 +149,25 @@ func setup(input: SelectPhotoViewModelInput) {
 }
 ```
 
-のように、photoLibraryから選択されたものから1つ取り出し、それをUIImageViewへbindする処理を行います。  
-処理の流れが見やすいのがRxSwiftいいですね。  
+のように、photoLibrary から選択されたものから 1 つ取り出し、それを UIImageView へ bind する処理を行います。  
+処理の流れが見やすいのが RxSwift いいですね。
 
-## Cognitoを利用して、S3へのアップロードを行う権限を付与
+## Cognito を利用して、S3 へのアップロードを行う権限を付与
 
-iphoneからAWSを利用するために、CognitoからIdentity Pool Idを作成する必要があります。
-CognitoからIdentity Pool Idの取得方法は[こちらの](https://dev.classmethod.jp/cloud/aws/aws-cli-credentials-using-amazon-cognito/)記事が分かりやすくまとまっています。
+iphone から AWS を利用するために、Cognito から Identity Pool Id を作成する必要があります。
+Cognito から Identity Pool Id の取得方法は[こちらの](https://dev.classmethod.jp/cloud/aws/aws-cli-credentials-using-amazon-cognito/)記事が分かりやすくまとまっています。
 
-CognitoのIdentity Pool Idを作成したのちに、このIAMに対して、対象のS3バケットに対して書き込み(PutObject)の権限を追加します。
+Cognito の Identity Pool Id を作成したのちに、この IAM に対して、対象の S3 バケットに対して書き込み(PutObject)の権限を追加します。
 
 ```json
 {
-    "Effect": "Allow",
-    "Action": [
-        "s3:PutObject"
-    ],
-    "Resource": [
-        "arn:aws:s3:::save-bucket-name/*"
-    ]
+  "Effect": "Allow",
+  "Action": ["s3:PutObject"],
+  "Resource": ["arn:aws:s3:::save-bucket-name/*"]
 }
 ```
 
-取得後のIdentity Pool Idを.envのAWS_IDENTITY_POOL_IDへ書き込み、環境変数は[こちらの](https://qiita.com/nnsnodnb/items/9344a1955c5cf50e61af)記事を参考させていただいて、``AppDelegate.swift``に以下コードを追加します。  
+取得後の Identity Pool Id を.env の AWS_IDENTITY_POOL_ID へ書き込み、環境変数は[こちらの](https://qiita.com/nnsnodnb/items/9344a1955c5cf50e61af)記事を参考させていただいて、`AppDelegate.swift`に以下コードを追加します。
 
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -205,11 +205,11 @@ private func initEnv() {
 }
 ```
 
-これで、Cognitoの認証を設定することができます。
+これで、Cognito の認証を設定することができます。
 
-## 選択されたファイルをtmpファイルへ書き込みS3へアップロード
+## 選択されたファイルを tmp ファイルへ書き込み S3 へアップロード
 
-アップロードボタンがクリックされた時のイベントを追加するために新しいViewModelを作成し、
+アップロードボタンがクリックされた時のイベントを追加するために新しい ViewModel を作成し、
 
 ```swift
 func setup(input: UploadPhotoViewModelInput) {
@@ -246,10 +246,9 @@ private func savePNGImage(to filePath: String, image: UIImage) -> NSURL {
 }
 ```
 
-のように、選択した画像に対して、``imageData.write(toFile: filePath, atomically: true)``で一度ファイルをtmp領域に保存を行い、AWSS3TransferUtilityUploadExpression(アップロード中の処理), AWSS3TransferUtilityUploadCompletionHandlerBlock(アップロード完了時の処理)をAWSS3TransferUtilityを利用してクロージャーとして宣言したのちにuploadFileを利用してアップロードを実行します。  
+のように、選択した画像に対して、`imageData.write(toFile: filePath, atomically: true)`で一度ファイルを tmp 領域に保存を行い、AWSS3TransferUtilityUploadExpression(アップロード中の処理), AWSS3TransferUtilityUploadCompletionHandlerBlock(アップロード完了時の処理)を AWSS3TransferUtility を利用してクロージャーとして宣言したのちに uploadFile を利用してアップロードを実行します。
 
-実際に実行した結果して、S3を確認すると
-
+実際に実行した結果して、S3 を確認すると
 
 ![s3 uploaded file](/images/2019/rxswift-s3-upload/s3-uploaded-file.png)
 
@@ -257,7 +256,7 @@ private func savePNGImage(to filePath: String, image: UIImage) -> NSURL {
 
 ## 終わりに
 
-RxSwiftでS3へのアップロード機能を実装してみました。  
-実装して思いましたが、RxSwiftを利用する利点として分離した時のイベントの流れが見やすくなるのは本当にいいなーと思いました。  
-ただ、途中でも述べた通り、実際の実務への導入となるとObservableの知識だったり、自分でイベントを拡張する必要も出てきたりするのかなと思うと、そこで以外に時間を取られたり....なんて事もあるんだろうなと思いました。  
-いろんなコストと鑑みて導入は考えるものだと感じました。ただコードが読みやすくなるのは正義なので自分はもう少し追ってみようかなと思います。  
+RxSwift で S3 へのアップロード機能を実装してみました。  
+実装して思いましたが、RxSwift を利用する利点として分離した時のイベントの流れが見やすくなるのは本当にいいなーと思いました。  
+ただ、途中でも述べた通り、実際の実務への導入となると Observable の知識だったり、自分でイベントを拡張する必要も出てきたりするのかなと思うと、そこで以外に時間を取られたり....なんて事もあるんだろうなと思いました。  
+いろんなコストと鑑みて導入は考えるものだと感じました。ただコードが読みやすくなるのは正義なので自分はもう少し追ってみようかなと思います。

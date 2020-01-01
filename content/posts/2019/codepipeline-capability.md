@@ -1,8 +1,8 @@
 ---
 date: 2019-03-27T21:55:59+09:00
-linktitle: "AWS CodePipelineのCapabilityでCAPABILITY_AUTO_EXPANDがなくてハマった"
-title: "AWS CodePipelineのCapabilityでCAPABILITY_AUTO_EXPANDがなくてハマった"
-tags: ["aws", "CodePipeline"]
+linktitle: 'AWS CodePipelineのCapabilityでCAPABILITY_AUTO_EXPANDがなくてハマった'
+title: 'AWS CodePipelineのCapabilityでCAPABILITY_AUTO_EXPANDがなくてハマった'
+tags: ['aws', 'CodePipeline']
 weight: 16
 ---
 
@@ -39,6 +39,8 @@ SAM の定義自体はそもそも AWS CloudFormation で記述されている�
 ![Capability old view](/images/2019/capability-old-view.png)
 
 のような感じで CAPABILITY_AUTO_EXPAND が存在しないのです。辛い。
+
+<!--adsense-->
 
 ## 解決方法 1: 新管理画面からの設定方法
 
