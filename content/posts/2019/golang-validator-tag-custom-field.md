@@ -1,22 +1,22 @@
 ---
 date: 2019-05-08T21:12:57+09:00
-linktitle: "go-playground/validatorでエラーField名だけ英語にするのはやめて"
-title: "go-playground/validatorでエラーField名だけ英語にするのはやめて"
-tags: ["go", "go-playground/validator"]
+linktitle: 'go-playground/validatorでエラーField名だけ英語にするのはやめて'
+title: 'go-playground/validatorでエラーField名だけ英語にするのはやめて'
+tags: ['go', 'go-playground/validator']
 weight: 16
 ---
 
 ## 始めに
 
-goのvalidationでよくお世話になっている[go-playground/validator](https://github.com/go-playground/validator)があるのですが、構造体のFieldごとにvalidationをかけられて便利ですが、エラーが起きた時にユーザー側で表示するメッセージのField名は構造体のまま取ってきてしまいます。  
+go の validation でよくお世話になっている[go-playground/validator](https://github.com/go-playground/validator)があるのですが、構造体の Field ごとに validation をかけられて便利ですが、エラーが起きた時にユーザー側で表示するメッセージの Field 名は構造体のまま取ってきてしまいます。  
 さあ困った...。  
 そんな時の小技と内部の実装を追ってみたのでその紹介。
 
 ## TL;DR
 
-RegisterTagNameFuncで独自のtagを作成しそこからfield名を取得出来るようにする
+RegisterTagNameFunc で独自の tag を作成しそこから field 名を取得出来るようにする
 
-## Validationを行うパッケージの実装内部
+## Validation を行うパッケージの実装内部
 
 ```go
 package main
@@ -92,14 +92,16 @@ $ go run main.go
 [ユーザーidは11かより小さくなければなりません 名前は[taro takashi]のうちのいずれかでなければなりません]
 ```
 
+<!--adsense-->
+
 ## 処理内部を追ってみた
 
 さすがにこれだとなんか出来ちゃった感が半端ないので、実際どういう経路で処理が実行されるのかソースを潜って実装を追ってみた。
 
-バリデーションのエラー文の日本語のtranslationは``go-playground/universal-translator``でエラー文自体を翻訳するインスタンス自体を定義して、RegisterDefaultTranslationsでtranslationの定義を取得。
-``validate.Struct(i)``でバリデーションを実行したのちに、エラーが発生していたら、そのメッセージを``ValidationErrors.Translate()``でtranslationしている。
+バリデーションのエラー文の日本語の translation は`go-playground/universal-translator`でエラー文自体を翻訳するインスタンス自体を定義して、RegisterDefaultTranslations で translation の定義を取得。
+`validate.Struct(i)`でバリデーションを実行したのちに、エラーが発生していたら、そのメッセージを`ValidationErrors.Translate()`で translation している。
 
-まずuniversal-translatorの初期化から処理からスタート。
+まず universal-translator の初期化から処理からスタート。
 
 ```go
 // New returns a new UniversalTranslator instance set with
@@ -139,13 +141,13 @@ func (t *UniversalTranslator) GetTranslator(locale string) (trans Translator, fo
 }
 ```
 
-ロケールごとのfallbackをGetTranslatorでlocaleを指定して取得している。
+ロケールごとの fallback を GetTranslator で locale を指定して取得している。
 
 ```go
 ja_translations.RegisterDefaultTranslations(validate, trans)
 ```
 
-のRegisterDefaultTranslationsの内部実装は長いので端折ると``translations``と呼ばれる
+の RegisterDefaultTranslations の内部実装は長いので端折ると`translations`と呼ばれる
 
 ```go
 []struct {
@@ -163,8 +165,8 @@ ja_translations.RegisterDefaultTranslations(validate, trans)
 v.RegisterTranslation(t.tag, trans, t.customRegisFunc, t.customTransFunc)
 ```
 
-を実行し、``validator.Validate``の``RegisterTranslation``を呼び出す。ここで``go-playground/universal-translator``に対してバリデーションを追加してる。  
-今度はエラー文を取得するところから、最終的に表示されるエラーの内容がどうやって生成されるのかを調べたい。  
+を実行し、`validator.Validate`の`RegisterTranslation`を呼び出す。ここで`go-playground/universal-translator`に対してバリデーションを追加してる。  
+今度はエラー文を取得するところから、最終的に表示されるエラーの内容がどうやって生成されるのかを調べたい。
 
 ```go
 func GetErrorMessages(err error) []string {
@@ -174,7 +176,7 @@ func GetErrorMessages(err error) []string {
 }
 ```
 
-``(validator.ValidationErrors).Translate(trans)``では
+`(validator.ValidationErrors).Translate(trans)`では
 
 ```go
 func (ve ValidationErrors) Translate(ut ut.Translator) ValidationErrorsTranslations {
@@ -188,7 +190,7 @@ func (ve ValidationErrors) Translate(ut ut.Translator) ValidationErrorsTranslati
 }
 ```
 
-``fieldError.Translate(ut)``を実行。この内部が
+`fieldError.Translate(ut)`を実行。この内部が
 
 ```go
 func (fe *fieldError) Translate(ut ut.Translator) string {
@@ -207,8 +209,8 @@ func (fe *fieldError) Translate(ut ut.Translator) string {
 }
 ```
 
-localeごとの``fieldError.v.transTagFunc``を実行。このtransTagFuncの実行でタグごとで処理を切り分けてtranslationを実行している。  
-そして、``translations/ja``に記述された``customTransFunc``がこのtransTagFuncにあたる処理になっていて、内部ではuniversal-translatorの
+locale ごとの`fieldError.v.transTagFunc`を実行。この transTagFunc の実行でタグごとで処理を切り分けて translation を実行している。  
+そして、`translations/ja`に記述された`customTransFunc`がこの transTagFunc にあたる処理になっていて、内部では universal-translator の
 
 ```go
 T(key interface{}, params ...string) (string, error)
@@ -217,8 +219,8 @@ O(key interface{}, num float64, digits uint64, param string) (string, error)
 R(key interface{}, num1 float64, digits1 uint64, num2 float64, digits2 uint64, param1, param2 string) (string, error)
 ```
 
-上のメソッドを呼び出していた。こいつらが実際のエラー文の文字列の正体で、ここのparamsに入力されるstringの値から第一引数の値だったりをカスタム出来るって話。ゴールが見えてきた。
-例えばmaxの場合には
+上のメソッドを呼び出していた。こいつらが実際のエラー文の文字列の正体で、ここの params に入力される string の値から第一引数の値だったりをカスタム出来るって話。ゴールが見えてきた。
+例えば max の場合には
 
 ```go
 func(ut ut.Translator, fe validator.FieldError) string {
@@ -232,7 +234,7 @@ func(ut ut.Translator, fe validator.FieldError) string {
 },
 ```
 
-のように、``ut.T()``を呼び出していて、第一引数に``fe.Field()``を渡している。``ut.T()``は
+のように、`ut.T()`を呼び出していて、第一引数に`fe.Field()`を渡している。`ut.T()`は
 
 ```go
 // T creates the translation for the locale given the 'key' and params passed in
@@ -262,8 +264,8 @@ func (t *translator) T(key interface{}, params ...string) (string, error) {
 }
 ```
 
-このようにテキストの変換を実行している。ここで、paramに設定された値に関してもここで変換が行われる。
-第一引数として渡す``Field()``に関しては
+このようにテキストの変換を実行している。ここで、param に設定された値に関してもここで変換が行われる。
+第一引数として渡す`Field()`に関しては
 
 ```go
 func (fe *fieldError) Field() string {
@@ -271,8 +273,8 @@ func (fe *fieldError) Field() string {
 }
 ```
 
-``fieldError``の``Namespace``(fe.nsで表現されている箇所)からfield名までをsliceで切り取って取得しているのが分かる。
-``fe.ns``は``validate.RegisterTagNameFunc``で返ってきた値に対してそのままnamespaceとして使えるので、最初に説明した
+`fieldError`の`Namespace`(fe.ns で表現されている箇所)から field 名までを slice で切り取って取得しているのが分かる。
+`fe.ns`は`validate.RegisterTagNameFunc`で返ってきた値に対してそのまま namespace として使えるので、最初に説明した
 
 ```go
 validate.RegisterTagNameFunc(func(fld reflect.StructField) string {
@@ -290,6 +292,6 @@ validate.RegisterTagNameFunc(func(fld reflect.StructField) string {
 
 ## まとめ
 
-構造体のField名から独自にTagを設定し、日本語のエラー文を表示する実装をしてみました。  
-ただ、多言語に対応という訳ではなく、日本語にのみ対応となっているのでちょっとどうかな...構造体からField名も決められるしまあ使い所によっては便利だと感じました。   
-ただ、jsonで記述してそれを読み込むみたいなi18nのやり方が自分はしっくり来るので、ちょっとその辺りなんとかならないかなとは思うところ。
+構造体の Field 名から独自に Tag を設定し、日本語のエラー文を表示する実装をしてみました。  
+ただ、多言語に対応という訳ではなく、日本語にのみ対応となっているのでちょっとどうかな...構造体から Field 名も決められるしまあ使い所によっては便利だと感じました。  
+ただ、json で記述してそれを読み込むみたいな i18n のやり方が自分はしっくり来るので、ちょっとその辺りなんとかならないかなとは思うところ。

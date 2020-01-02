@@ -26,6 +26,8 @@ fswatch -0 path/to | xargs -0 -I {} swagger-merger -i path/to/openapi.yaml -o op
 fswatch で path/to 配下を watch。その後 xargs で該当のコマンドを実行。  
 今回は swagger-merger で merge を実行。基本的にはこれだけ。
 
+<!--adsense-->
+
 ## ちょっと応用してみて golang の ORM 自動生成
 
 fswatch の可能性をかなり感じたため、他にもちょっと試してみました。  

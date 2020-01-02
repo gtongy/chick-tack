@@ -298,6 +298,8 @@ func (seg *Segment) flush(decrement bool) {
 xRayAfterBuildHandler 時点で終了しているのは marshal の実行のみのため、marshal の終了時間のみが記載されて、処理が継続して実行されます。
 この要領で handler 内の各ステップで Context 内に処理開始と処理終了時間を計測した Context が生成されていきます。
 
+<!--adsense-->
+
 ## 最終的に Context が送信される処理
 
 上記の handler の処理を実行していき、最終的に root に到達した時点で今まで構築した Context を使って UDP 経由で daemon にパケットが送信されます。

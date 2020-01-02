@@ -21,6 +21,9 @@ SummaryLength = 150
 	enableGoogleAnalytics = true
 	enableBaiduAnalytics = false
 	customCSS = ["css/adsbygoogle.css"]
+[params.adsense]
+	client = "ca-pub-5193360380364380"
+	inArticleSlot = "1435944754"
 [social]
 	github-square = "https://github.com/gtongy"
 [permalinks]
