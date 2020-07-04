@@ -20,7 +20,7 @@ SummaryLength = 150
 	iconFont = "font-awesome"
 	enableGoogleAnalytics = true
 	enableBaiduAnalytics = false
-	customCSS = ["css/adsbygoogle.css"]
+	customCSS = ["css/adsbygoogle.css", "css/_style.css"]
 [social]
 	github-square = "https://github.com/gtongy"
 [permalinks]
