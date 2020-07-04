@@ -129,6 +129,8 @@ public final class BackToCurrentButton: UIButton {
 
 これでボタンの設置が完了です。ここからボタンクリック後に現在値に戻る実装を行います。
 
+<!--adsense-->
+
 ## RxSwift を使って tap 後のアクションの追加
 
 最後にボタンタップ後に現在値に戻る実装の追加を行います。
