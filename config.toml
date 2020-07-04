@@ -20,7 +20,7 @@ SummaryLength = 150
 	iconFont = "font-awesome"
 	enableGoogleAnalytics = true
 	enableBaiduAnalytics = false
-	customCSS = ["css/adsbygoogle.css"]
+	customCSS = ["css/adsbygoogle.css", "css/_style.css"]
 [params.adsense]
 	client = "ca-pub-5193360380364380"
 	inArticleSlot = "1435944754"
